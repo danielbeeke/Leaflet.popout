@@ -1,0 +1,19 @@
+.leaflet-popout-pane {
+  position: absolute;
+  z-index: 1000;
+}
+
+.leaflet-popout-altered {
+  overflow: visible;
+}
+
+.leaflet-map-pane-wrapper {
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+.leaflet-popout-outside-bounds {
+  opacity: 0 !important;
+}

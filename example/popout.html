@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leaflet.popout example</title>
+
+    <link rel="stylesheet" href="../libs/leaflet/leaflet.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="../libs/leaflet/leaflet.ie.css" /><![endif]-->
+    <link rel="stylesheet" href="../dist/leaflet.popout.css" />
+
+    <script src="../libs/leaflet/leaflet-src.js"></script>
+
+    <script src="../src/Popout.js"></script>
+
+    <style type="text/css">
+        #map {
+            height: 300px;
+        }
+
+        .container {
+        	width: 520px;
+        	margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <p>
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis leo congue tortor convallis fermentum. Aenean facilisis nibh eu lectus aliquet congue. Suspendisse dapibus sapien vitae libero sollicitudin, ac gravida enim tristique. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit. Sed laoreet aliquet vehicula. Vivamus feugiat sed ligula in egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce eu adipiscing tellus. Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate ipsum est. Praesent nec feugiat libero. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus porta magna elit, at suscipit ligula porttitor
+            non. Maecenas varius semper mauris nec vulputate. Phasellus purus lorem, vulputate nec velit ac, lobortis fermentum risus. Proin nec faucibus arcu. Vivamus facilisis pellentesque urna. Phasellus ac ante at dui porttitor aliquet a in ante.
+            Aliquam condimentum nisl eu libero laoreet, sed accumsan metus vulputate. Suspendisse quis iaculis dui, at posuere ante. Nulla vel elit ultricies, tincidunt mi sed, auctor ligula. Aenean pulvinar lorem erat, sit amet feugiat leo convallis
+            id. Cras quis vestibulum metus.</p>
+        <div id="map"></div>
+    </div>
+
+    <script>
+    
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+            maxZoom: 18
+        }).addTo(map);
+
+        L.marker([51.5, -0.09]).addTo(map)
+        .bindPopout("Phasellus ac ante at dui porttitor aliquet a in ante. Aliquam condimentum nisl eu libero laoreet, sed accumsan metus vulputate. Suspendisse quis iaculis dui, at posuere ante. Nulla vel elit ultricies, tincidunt mi sed, auctor ligula. Aenean pulvinar lorem erat, sit amet feugiat leo convallis id. Cras quis vestibulum metus. Morbi sed vulputate dui. Curabitur et sem odio. Phasellus elit augue, fermentum at velit non, luctus ullamcorper nibh. Duis nec tempus sapien, quis fermentum velit. Suspendisse iaculis rhoncus nibh, a condimentum quam sollicitudin sit amet. Vestibulum odio urna, imperdiet eget ligula sit amet, vehicula gravida velit.", {
+            autoPan: false
+        }).openPopout();
+
+    </script>
+</body>
+
+</html>
