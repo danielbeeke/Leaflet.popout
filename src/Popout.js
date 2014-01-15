@@ -26,14 +26,11 @@ L.Popout = L.Popup.extend({
 
       // Add a class so we can style on only the altered maps.
       map._container.className = map._container.className + ' leaflet-popout-altered';
-
-      // Add an event to sync the translate on of the map panes div to our div.
-      map.on('move', function (target) {
-        plugin._onMapMove(map);
-      })
-
-      this._onMapMove(map)
     }
+
+    // Add an event to sync the translate on of the map panes div to our div.
+    map.on('move', this.onMapMove, this);
+    this.onMapMove()
 
     var animFade = map.options.fadeAnimation;
 
@@ -59,8 +56,11 @@ L.Popout = L.Popup.extend({
     }
   },
 
-  _onMapMove: function (map) {
+  onMapMove: function () {
+    var map = this._map;
+
     var translate = map._panes.mapPane.getAttribute('style');
+
     map._panes.popoutPane.setAttribute('style', translate);
 
     // Check if the popout center point is still inside the bounds of the current map.
@@ -78,6 +78,7 @@ L.Popout = L.Popup.extend({
     L.Util.falseFn(this._container.offsetWidth); // force reflow
 
     map.off(this._getEvents(), this);
+    map.off('move', this.onMapMove, this);
 
     if (map.options.fadeAnimation) {
       L.DomUtil.setOpacity(this._container, 0);
